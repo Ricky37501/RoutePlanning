@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorTitle">#2E79B5</color>
-    <color name="colorTitleShadow">#2E79B5</color>
+    <color name="colorTitleShadow">#91CFFF</color>
     <color name="colorAquamarine">#2BD5B3</color>
     <color name="colorWhite">#FFFFFF</color>
 </resources>

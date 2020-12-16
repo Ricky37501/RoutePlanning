@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static Context sContext;
+    public  Context sContext;
     private EditText startStation;
     private EditText endStation;
     private Button searchButton;
@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         searchButton=findViewById(R.id.search_btn);
 
         sContext=this;
-        DBUtils.testConnection(sContext);
     }
 
     public void startSearch(View view) {

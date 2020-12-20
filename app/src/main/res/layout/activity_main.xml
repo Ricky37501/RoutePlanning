@@ -47,6 +47,17 @@
             android:inputType="textShortMessage">
         </EditText>
         <Button
+            android:id="@+id/reverse_btn"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="@string/reverse"
+            android:background="@drawable/rip_round_btn_blue"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40sp"
+            android:textColor="@color/colorWhite"
+            >
+        </Button>
+        <Button
             android:id="@+id/search_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

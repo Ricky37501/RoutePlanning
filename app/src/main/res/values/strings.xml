@@ -4,4 +4,5 @@
     <string name="start_point">出发站点</string>
     <string name="end_point">目标站点</string>
     <string name="search">查询</string>
-    </resources>
+    <string name="reverse">换位</string>
+</resources>

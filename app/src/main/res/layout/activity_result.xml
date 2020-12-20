@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
-
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -13,7 +12,5 @@
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
         android:layout_marginBottom="30sp">
-
     </LinearLayout>
 </ScrollView>
-

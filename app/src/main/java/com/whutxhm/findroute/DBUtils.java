@@ -1,19 +1,13 @@
 package com.whutxhm.findroute;
-import android.content.Context;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 
 public class DBUtils {
-    //MySQL驱动
     private static String driver = "org.gjt.mm.mysql.Driver";
-    //用户名
     private static String user = "root";
-    //密码
     private static String password = "root";
-
     private static Connection connection;
 
     public static void connect(){

@@ -1,17 +1,14 @@
 package com.whutxhm.findroute;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Looper;
 import android.widget.Toast;
 
-/**
- * @ClassName：ToastUtils
- * @author：Ricky
- */
-
 public class ToastUtils {
     static Toast toast = null;
 
+    @SuppressLint("ShowToast")
     public static void show(Context context, String text) {
         try {
             if (toast != null) {
@@ -28,4 +25,3 @@ public class ToastUtils {
         }
     }
 }
-

@@ -14,19 +14,25 @@ public class DBUtils {
     //密码
     private static String password = "root";
 
-    public static void testConnection(final Context tContext){
+    private static Connection connection;
+
+    public static void connect(){
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Connection connection = getConn("db_traffic");
+                connection = getConn("db_traffic");
                 if (connection==null){
-                    ToastUtils.show(tContext,"数据库连接失败");
+                    System.out.println("数据库连接失败");
                 }
                 else {
-                    ToastUtils.show(tContext,"数据库连接成功");
+                    System.out.println("数据库连接成功");
                 }
             }
         }).start();
+    }
+
+    public static Connection getConnection(){
+        return connection;
     }
 
     public static Connection getConn(String dbName){

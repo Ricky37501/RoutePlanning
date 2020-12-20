@@ -55,7 +55,6 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="40sp"
             android:textColor="@color/colorWhite"
-            android:onClick="startSearch"
             >
         </Button>
     </LinearLayout>

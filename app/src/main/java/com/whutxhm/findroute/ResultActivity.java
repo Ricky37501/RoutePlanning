@@ -26,7 +26,7 @@ public class ResultActivity extends AppCompatActivity {
     private String mStartStation;
     private String mEndStation;
     private Context rContext=this;
-    private boolean bThreadDone;
+    private Connection mConnection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         mStartStation = intent.getStringExtra("start");
         mEndStation = intent.getStringExtra("end");
-
+        Bundle bundle=intent.getBundleExtra("bundle");
         //执行数据库查询
         new Thread(new Runnable() {
             @Override
@@ -45,9 +45,9 @@ public class ResultActivity extends AppCompatActivity {
                 Message message2= handler2.obtainMessage();
                 ArrayList<ArrayList<String>> routeOption = new ArrayList<>();//每个元素存放线路ID，始发站，终点站, 路线名(参考行驶方向)
                 ArrayList<ArrayList<String>> transRouteOption = new ArrayList<>();//第一个路线名 中转站 第二个路线名
-                Connection connection = DBUtils.getConn("db_traffic");
-                findDirectRoute(connection,routeOption);
-                findOneTransRoute(connection,mStartStation,mEndStation,transRouteOption);
+                mConnection=DBUtils.getConnection();
+                findDirectRoute(mConnection,routeOption);
+                findOneTransRoute(mConnection,mStartStation,mEndStation,transRouteOption);
                 message1.obj = routeOption;
                 message2.obj = transRouteOption;
                 handler1.sendMessage(message1);
@@ -107,7 +107,7 @@ public class ResultActivity extends AppCompatActivity {
                 TextView tv = new TextView(rContext);
                 tv.setLayoutParams(layoutParams);
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-                String output = transRouteOption.get(i).get(0) + " 在"+transRouteOption.get(i).get(1)+"转乘 " + transRouteOption.get(i).get(2);
+                String output = transRouteOption.get(i).get(0) + "\n在 "+transRouteOption.get(i).get(1)+"站 转乘\n" + transRouteOption.get(i).get(2);
                 tv.setText(output);
 
                 View v = new View(rContext);

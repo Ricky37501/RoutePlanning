@@ -1,7 +1,6 @@
 package com.whutxhm.findroute;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,16 +21,22 @@ public class MainActivity extends AppCompatActivity {
         startStation=findViewById(R.id.star_point);
         endStation=findViewById(R.id.end_point);
         searchButton=findViewById(R.id.search_btn);
-
-        sContext=this;
-    }
-
-    public void startSearch(View view) {
-        Intent intent =new Intent(MainActivity.this,ResultActivity.class);
-        String start=startStation.getText().toString();
-        String end=endStation.getText().toString();
-        intent.putExtra("start",start);
-        intent.putExtra("end",end);
-        startActivity(intent);
+        DBUtils.connect();
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                    String start = startStation.getText().toString();
+                    String end = endStation.getText().toString();
+                    intent.putExtra("start", start);
+                    intent.putExtra("end", end);
+                    startActivity(intent);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }
